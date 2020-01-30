@@ -2,6 +2,7 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { BlurView } from 'expo-blur'
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs'
+import { NavigationNativeContainer } from '@react-navigation/native'
 
 import IconPeople from './components/IconPeople'
 import StackOne from './StackOne'
@@ -11,16 +12,18 @@ const Tab = createBottomTabNavigator()
 
 export default function TabNavigation() {
   return (
-    <Tab.Navigator
-      initialRouteName="Home"
-      tabBar={props => <MyTabBar {...props} />}
-      tabBarOptions={{ activeTintColor: '#0A84FF', inactiveTintColor: '#8E8E93' }}
-      screenOptions={{ contentStyle: { backgroundColor: '#000' } }}
-    >
-      <Tab.Screen options={{ tabBarIcon: ({ color }) => <IconPeople color={color} /> }} name="Home" component={StackOne} />
-      <Tab.Screen options={{ tabBarIcon: ({ color }) => <IconPeople color={color} /> }} name="Screen" component={TabScreen} />
-      <Tab.Screen options={{ tabBarIcon: ({ color }) => <IconPeople color={color} /> }} name="Another" component={TabScreen} />
-    </Tab.Navigator>
+    <NavigationNativeContainer>
+      <Tab.Navigator
+        initialRouteName="Home"
+        tabBar={props => <MyTabBar {...props} />}
+        tabBarOptions={{ activeTintColor: '#0A84FF', inactiveTintColor: '#8E8E93' }}
+        screenOptions={{ contentStyle: { backgroundColor: '#000' } }}
+      >
+        <Tab.Screen options={{ tabBarIcon: ({ color }) => <IconPeople color={color} /> }} name="Home" component={StackOne} />
+        <Tab.Screen options={{ tabBarIcon: ({ color }) => <IconPeople color={color} /> }} name="Screen" component={TabScreen} />
+        <Tab.Screen options={{ tabBarIcon: ({ color }) => <IconPeople color={color} /> }} name="Another" component={TabScreen} />
+      </Tab.Navigator>
+    </NavigationNativeContainer>
   )
 }
 

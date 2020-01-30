@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import { AppearanceProvider } from 'react-native-appearance'
 import { enableScreens } from 'react-native-screens'
 
-import AuthStack from './src/AuthNav'
+import TabNav from './src/TabNav'
 
 enableScreens()
 
@@ -11,7 +11,7 @@ const App = () => {
   return (
     <AppearanceProvider>
       <View style={{ backgroundColor: '#333', flex: 1 }}>
-        <AuthStack />
+        <TabNav />
       </View>
     </AppearanceProvider>
   )
